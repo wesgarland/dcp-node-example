@@ -17,7 +17,8 @@ Fork this github repository to get running quickly with DCP on NodeJS.
 
 ### Getting Started
 You will need Node 10 in your path.  If you have an older version of NodeJS, use `nvm`; see
-instructions in the FAQ.
+instructions in the FAQ. Additionally, you will need to copy your identity and bank account
+keystores from the DCP Portal into your home directory.
 
 ```
 # mkdir ~/.dcp
