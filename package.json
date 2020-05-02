@@ -1,0 +1,26 @@
+{
+  "name": "dcp-node-example",
+  "version": "1.0.0",
+  "description": "NodeJS Example project for DCP",
+  "main": "events.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wesgarland/dcp-node-example.git"
+  },
+  "keywords": [
+    "dcp",
+    "nodejs"
+  ],
+  "author": "Wes Garland",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wesgarland/dcp-node-example/issues"
+  },
+  "homepage": "https://github.com/wesgarland/dcp-node-example#readme",
+  "dependencies": {
+    "dcp-client": "git+https://github.com/wesgarland/dcp-client.git"
+  }
+}
