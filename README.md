@@ -143,3 +143,13 @@ new ready state: deployed
 | exited interactive terminal mode
 niim>
 ```
+
+#### Why does it take so long to get my results back?
+Our scheduler is very busy!
+
+We do prioritize work based on your *bid price*.  This is the value per slice assigned 
+during to the call to `compute.exec()`. 
+
+We also have a slow-start period which is designed to measure the work you have submitted,
+ensure that it is well-behaved, and so on.  This means that we will hold back your work
+until we get results back for 5-10 slices.
