@@ -15,6 +15,20 @@ Fork this github repository to get running quickly with DCP on NodeJS.
 | DCP_XHR_DEBUG               | Shows network traffic on the console                     |
 | DCP_XHR_PROXY               | Set url of HTTP proxy server                             |
 
+### Getting Started
+You will need Node 10 in your path.  If you have an older version of NodeJS, use `nvm`; see
+instructions in the FAQ.
+
+```
+# mkdir ~/.dcp
+# cp ~/Downloads/id.keystore ~/.dcp
+# cp ~/Downloads/default.keystore ~/.dcp
+# git clone git@github.com:wesgarland/dcp-node-example.git
+# cd dcp-node-example
+# npm i
+# ./events.js
+```
+
 ### FAQ
 
 #### Where do I get an identity proxy keystore?
@@ -41,6 +55,50 @@ and it will become invalid immediately.
 - Create a new bank account
 - Transfer all your DCC into the new account
 - Remove the old account
+
+#### What versions of NodeJS are supported?
+We are currently testing Node 10 LTS, version 10.20.
+
+If your operating system has a different version of NodeJS, we suggest using `nvm` to
+run Node 10 until we can upgrade our crypto libraries. Visit `https://nvm.sh/` to
+download `nvm`.
+
+```# curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 13527  100 13527    0     0   113k      0 --:--:-- --:--:-- --:--:--  113k
+=> Downloading nvm from git to '/Users/wes/.nvm'
+=> Cloning into '/Users/wes/.nvm'...
+remote: Enumerating objects: 290, done.
+remote: Counting objects: 100% (290/290), done.
+remote: Compressing objects: 100% (257/257), done.
+remote: Total 290 (delta 35), reused 97 (delta 20), pack-reused 0
+Receiving objects: 100% (290/290), 163.27 KiB | 2.97 MiB/s, done.
+Resolving deltas: 100% (35/35), done.
+=> Compressing and cleaning up git repository
+
+=> nvm source string already in /Users/wes/.bashrc
+=> bash_completion source string already in /Users/wes/.bashrc
+=> Close and reopen your terminal to start using nvm or run the following to use it now:
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completio
+
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# nvm install Dubnium
+Downloading and installing node v10.20.1...
+Downloading https://nodejs.org/dist/v10.20.1/node-v10.20.1-darwin-x64.tar.xz...
+################################################################################################# 100.0%
+Computing checksum with shasum -a 256
+Checksums matched!
+Now using node v10.20.1 (npm v6.14.4)
+! WARNING: Version 'Dubnium' does not exist.
+Creating default alias: default -> Dubnium (-> N/A)
+#
+```
 
 #### Can I use the node command line debugger with DCP Client?
 No; the node debugger does not interoperate with programs that require you to 
