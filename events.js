@@ -1,4 +1,6 @@
 #! /usr/bin/env node
+const scheduler = 'https://scheduler.distributed.computer';
+
 /**
  * @file        events.js
  *              Sample node application showing how to deploy a DCP job whilst receiving
@@ -47,10 +49,13 @@ async function main() {
   job.public.name = 'events example, nodejs';
   job.public.description = 'DCP-Client Example examples/node/events.js';
 
-  let ks = await wallet.get(); /* usually loads ~/.dcp/default.keystore */
-  job.setPaymentAccountKeystore(ks);
-  await job.exec(compute.marketValue)
-  console.log(results)
+  // This is the default behaviour - change if you have multiple bank accounts
+  // let ks = await wallet.get(); /* usually loads ~/.dcp/default.keystore */
+  // job.setPaymentAccountKeystore(ks);
+
+  results = await job.exec(compute.marketValue)
+  //results = await job.localExec()
+  console.log('Results are: ', results.values())
 }
 
-require('dcp-client').init().then(main).finally(() => setImmediate(process.exit))
+require('dcp-client').init(scheduler).then(main).finally(() => setImmediate(process.exit))
