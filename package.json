@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/wesgarland/dcp-node-example#readme",
   "dependencies": {
-    "dcp-client": "git+https://github.com/wesgarland/dcp-client.git"
+    "dcp-client": "^3.1.11"
   }
 }
