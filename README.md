@@ -35,7 +35,7 @@ keystores from the DCP Portal into the .dcp directory inside your home directory
 #### Where do I get an identity proxy keystore?
 Visit https://portal.distributed.computer/, then
 - Portal
-- Profile
+- First Devs
 - Identity Keys
 - Bottom right, green plus
 
