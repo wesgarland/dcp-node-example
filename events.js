@@ -68,7 +68,7 @@ async function main() {
 
   const results = await job.exec(compute.marketValue);
   // OR
-  // const results = await job.localExec()
+  // const results = await job.localExec();
 
   console.log('Results are: ', results.values());
 }
