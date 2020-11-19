@@ -18,39 +18,48 @@ async function main() {
 
   const job = compute.for(
     ['red', 'green', 'yellow', 'blue', 'brown', 'orange', 'pink'],
-    function (colour) {
+    (colour) => {
       console.log(colour);
       progress();
       return colour;
     },
   );
 
-  job.on('accepted', function (event) {
-    console.log(` - Job accepted by scheduler, waiting for results`);
-    console.log(` - Job has id ${this.id}`);
+  job.on('accepted', (event) => {
+    console.log(' - Job accepted by scheduler, waiting for results');
+    console.log(` - Job has id ${job.id}`);
     startTime = Date.now();
   });
-  job.on('complete', function (event) {
+  job.on('complete', (event) => {
     console.log(
       `Job Finished, total runtime = ${
         Math.round((Date.now() - startTime) / 100) / 10
       }s`,
     );
   });
-  job.on('readystatechange', function (arg) {
-    console.log(`new ready state: ${arg}`);
+  job.on('readystatechange', (event) => {
+    console.log(`New ready state: ${event}`);
   });
-  job.on('result', function (ev) {
+  job.on('status', (event) => {
+    console.log('Received status update:', event);
+  });
+  job.on('console', ({ message }) => {
+    console.log('Received console message:', message);
+  });
+  job.on('result', ({ result, sliceNumber }) => {
     console.log(
-      ` - Received result for slice ${ev.sliceNumber} at ${
+      ` - Received result for slice ${sliceNumber} at ${
         Math.round((Date.now() - startTime) / 100) / 10
       }s`,
     );
-    console.log(` * Wow! ${ev.result} is such a pretty colour!`);
+    console.log(` * Wow! ${result} is such a pretty colour!`);
+  });
+  job.on('error', (event) => {
+    console.error('Received Error:', event);
   });
 
-  job.public.name = 'events example, nodejs';
-  job.public.description = 'DCP-Client Example examples/node/events.js';
+  job.public.name = 'Events Example - Nodejs';
+  job.public.description = 'DCP-Client Example - examples/node/events.js';
 
   // This is the default behaviour - change if you have multiple bank accounts
   // const wallet = require('dcp/wallet');
